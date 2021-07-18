@@ -30,7 +30,7 @@ $alert-button-wrapperMargin:                           25px 0 0;
 // Confirm button
 $alert-button-bgColor:                                 stencilColor("button--primary-backgroundColor");
 $alert-button-bgColorHover:                            stencilColor("button--primary-backgroundColorHover");
-$alert-button-bgColorActive:                           stencilColor("button--primary-backgroundColorActive");
+$alert-button-bgColorActive:                           stencilColor("button--primary-backgroundColorHover");
 
 $alert-button-borderColor:                             $alert-button-bgColor;
 $alert-button-borderColorHover:                        $alert-button-bgColorHover;
@@ -38,7 +38,7 @@ $alert-button-borderColorActive:                       $alert-button-bgColorActi
 
 $alert-button-color:                                   stencilColor("button--primary-color");
 $alert-button-colorHover:                              stencilColor("button--primary-colorHover");
-$alert-button-colorActive:                             stencilColor("button--primary-colorActive");
+$alert-button-colorActive:                             stencilColor("button--primary-colorHover");
 
 // Cancel button
 $alert-button-cancel-bgColor:                          transparent;
@@ -47,8 +47,8 @@ $alert-button-cancel-bgColorActive:                    transparent;
 
 $alert-button-cancel-borderColor:                      stencilColor("button--default-borderColor");
 $alert-button-cancel-borderColorHover:                 stencilColor("button--default-borderColorHover");
-$alert-button-cancel-borderColorActive:                stencilColor("button--default-borderColorActive");
+$alert-button-cancel-borderColorActive:                stencilColor("button--default-borderColorHover");
 
 $alert-button-cancel-color:                            stencilColor("button--default-color");
 $alert-button-cancel-colorHover:                       stencilColor("button--default-colorHover");
-$alert-button-cancel-colorActive:                      stencilColor("button--default-colorActive");
+$alert-button-cancel-colorActive:                      stencilColor("button--default-colorHover");

@@ -14,12 +14,6 @@
         width: 100%;
     }
 
-    + .blog {
-        border-top: container("border");
-        margin-top: spacing("double");
-        padding-top: spacing("double");
-    }
-
     .tags {
         margin-top: spacing("double");
         text-align: center;
@@ -37,8 +31,8 @@
 }
 
 .blog-title {
-    font-size: fontSize("large");
-    margin: 0 spacing("single") spacing("quarter");
+    margin-top: 0;
+    text-transform: none;
 
     a {
         text-decoration: none;
@@ -48,7 +42,8 @@
 .blog-date,
 .blog-author {
     color: stencilColor("color-textSecondary");
-    text-align: center;
+    text-align: left;
+    margin: 0;
 }
 
 .blog-author {
@@ -56,12 +51,11 @@
 }
 
 .blog-post {
-    font-size: fontSize("smaller");
     text-align: left;
 }
 
 .blog-thumbnail {
-    margin: 0 auto (spacing("base") * 2);
+    margin: 0 auto spacing("single");
     position: relative;
     max-width: get_width(stencilString('blog_size'));
 
@@ -74,27 +68,10 @@
     display: block;
     margin: auto;
     text-align: center;
-
-    @include breakpoint("medium") {
-        width: grid-calc(8, $total-columns);
-    }
 }
 
 .blog-post-body {
     display: block;
     margin: 0 auto;
-    text-align: center;
     width: 100%;
-
-    @include breakpoint("small") {
-        width: grid-calc(10, $total-columns);
-    }
-
-    @include breakpoint("medium") {
-        width: grid-calc(8, $total-columns);
-    }
-
-    @include breakpoint("large") {
-        width: grid-calc(6, $total-columns);
-    }
 }

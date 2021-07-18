@@ -1,6 +1,6 @@
 .amp-menu-button {
     background-color: transparent;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 24 24"><path fill="%234f4f4f" d="M0 12h18v-2H0v2M0 7h18V5H0v2M0 0v2h18V0H0"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 24 24"><path fill="#000000" d="M0 12h18v-2H0v2M0 7h18V5H0v2M0 0v2h18V0H0"/></svg>');
     background-repeat: no-repeat;
     background-size: 2rem 1.8rem;
     background-position: center center;
@@ -11,18 +11,20 @@
     font-size: 0;
     border: 0;
     flex-shrink: 0;
+    z-index: 1;
 }
 
 .amp-header {
-    background-color: #fff;
+    background-color: {{header-background}};
     border-bottom: 1px solid #e8e8e8;
     position: fixed;
     top: 0;
     width: 100%;
-    height: 55px;
+    height: 65px;
     z-index: 20;
     display: flex;
     align-items: center;
+    padding: 10px 0 2px;
 }
 
 .amp-header-logo {
@@ -54,8 +56,9 @@
 }
 
 .amp-header-logo-text {
+    color: {{storeName-color}};
     display: block;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 300;
     letter-spacing: .15714rem;
@@ -139,11 +142,14 @@
 }
 
 .navPages {
-    background-color: #f2f2f2;
+    background-color: {{nav-background}};
     height: 100%;
     overflow-y: auto;
     padding: 1.5rem
 }
+
+.navPages li,
+.navPages a{color: {{nav-links-color}};}
 
 .navPages-list {
     margin: .78571rem 0 0;

@@ -12,11 +12,12 @@ body {
 }
 
 body {
+    background-color: {{body-bg}};
     font-size: 1rem;
-    font-family: "Karla", Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.5;
-    color: #4f4f4f;
+    color: {{body-text}};
     padding-top: 55px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,13 +31,13 @@ li {
     margin: 0;
 }
 a {
-    color: #4f4f4f;
+    color: {{primary-link}};
     line-height: inherit;
     text-decoration: none;
 }
 a:hover,
 a:focus {
-    color: #a5a5a5
+    color: {{primary-link}}
 }
 p {
     margin-bottom: 1.5rem
@@ -48,8 +49,8 @@ h3,
 h4,
 h5,
 h6 {
-    color: #2d2d2d;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    color: {{headings-color}};
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     letter-spacing: .25px;
     margin-bottom: .78571rem;
@@ -61,7 +62,7 @@ h3 small,
 h4 small,
 h5 small,
 h6 small {
-    color: #989898;
+    color: {{headings-color}};
     font-size: 60%;
     line-height: 0
 }
@@ -186,7 +187,7 @@ cite {
     border-style: solid;
     border-width: 1px;
     cursor: pointer;
-    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: normal;
     margin: 0 0 1rem;
@@ -194,9 +195,9 @@ cite {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background-color: transparent;
-    border-color: #dfdfdf;
-    color: #454545;
+    background-color: {{secondary-button-background}};
+    border-color: {{secondary-button-background}};
+    color: {{secondary-button-text}};
     font-size: 1rem;
     padding: .85714rem 2.28571rem;
     border-radius: 4px;
@@ -207,14 +208,14 @@ cite {
 .button:focus,
 .button.is-active,
 .button.active {
-    background-color: transparent;
-    border-color: #989898;
-    color: #666
+    background-color: {{secondary-button-background}};
+    border-color: {{secondary-button-background}};
+    color: {{secondary-button-text}}
 }
 .button:active {
-    background-color: transparent;
-    border: 1px solid #454545;
-    color: #454545
+    background-color: {{secondary-button-background}};
+    border: 1px solid {{secondary-button-background}};
+    color: {{secondary-button-text}}
 }
 .button:focus,
 .button.is-active,
@@ -222,27 +223,27 @@ cite {
     outline: none
 }
 .button--primary {
-    background-color: #454545;
-    border-color: #454545;
-    color: #fff
+    background-color: {{primary-button-background}};
+    border-color: {{primary-button-background}};
+    color: {{primary-button-text}}
 }
 .button--primary:hover,
 .button--primary:focus,
 .button--primary.is-active,
 .button--primary.active {
-    background-color: #666;
-    border-color: #666;
-    color: #fff
+    background-color: {{primary-button-background}};
+    border-color: {{primary-button-background}};
+    color: {{primary-button-text}};
 }
 .button--primary:active {
-    background-color: #989898;
-    border: 1px solid #989898;
-    color: #fff
+    background-color: {{primary-button-background}};
+    border: 1px solid {{primary-button-background}};
+    color: {{primary-button-text}}
 }
 .button[disabled] {
-    background-color: #dadada;
-    border-color: #dadada;
-    color: #fff;
+    background-color: {{disabled-button-background}};
+    border-color: {{disabled-button-background}};
+    color: {{disabled-button-text}};
     cursor: default
 }
 
@@ -256,15 +257,15 @@ cite {
     padding: .78571rem
 }
 .button--icon svg {
-    fill: #4f4f4f
+    fill: {{secondary-button-text}}
 }
 
 .icon--ratingEmpty svg {
-    fill: #dfdfdf;
+    fill: {{star-rating-empty}};
 }
 
 .icon--ratingFull svg {
-    fill: #454545;
+    fill: {{star-rating-full}};
 }
 
 .price--rrp,

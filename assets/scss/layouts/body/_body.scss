@@ -24,11 +24,6 @@
     );
 }
 
-.page-content,
-.page-content--full {
-    @include grid-column(12);
-}
-
 .page-content--centered {
 
     @include breakpoint("medium") {

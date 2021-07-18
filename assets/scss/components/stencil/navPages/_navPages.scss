@@ -75,7 +75,7 @@
     @include breakpoint("medium") {
         @include grid-row(); // 1
         @include nav($style: "navBar", $wrapper: "nav");
-        background: none;
+        background: $navPages-backgroundColor;
         font-size: 0; // 1
         overflow-y: visible;
         padding: 0;
@@ -109,12 +109,6 @@
     @include breakpoint("medium") {
         display: inline-block;
         float: none;
-    }
-
-    + .navPages-list {
-        border-top: 1px solid $navPages-list--user-borderColor;
-        margin-top: spacing("half");
-        padding-top: spacing("half");
     }
 }
 
@@ -160,7 +154,6 @@
         height: 35px;
         margin-top: -10px;
         padding: 11.7px; // (33 - 9.6) / 2
-        transform: rotate(90deg);
         width: 35px;
 
         @include breakpoint("medium") {
@@ -188,7 +181,7 @@
 .navPages-action {
     color: stencilColor("navPages-color");
     display: block;
-    font-size: fontSize("smaller");
+    font-size: 1rem;
     font-weight: fontWeight("bold");
     padding: spacing("half") 0;
     text-decoration: none;
@@ -197,8 +190,12 @@
     &.has-subMenu {
         .navPages-list:not(.navPages-list-depth-max) & {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+        }
+        @include breakpoint("medium") {
+            .navPages-list:not(.navPages-list-depth-max) & {
+                justify-content: center;
+            }
         }
     }
 
@@ -221,7 +218,7 @@
     }
 
     &:hover, &.activePage {
-        color: $navPage-subMenu-item--is-highlighted-color;
+        color: stencilColor("navPages-color-hover");
 
         // scss-lint:disable NestingDepth
         svg {
@@ -249,10 +246,9 @@
     }
 }
 
-.navPages-action-moreIcon {
+.navPages-mainNav .navPages-item > a > .navPages-action-moreIcon {
     @include square(8px);
-    margin-left: spacing("half");
-    transform: rotate(-90deg);
+    margin-left: spacing("quarter");
 
     @include breakpoint("medium") {
         transform: none;
@@ -383,11 +379,8 @@
 
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
-        @include grid-column(3);
-        padding: 0 0.75rem !important; // 1
 
         .navPages-action {
-            text-transform: none;
             width: 100%;
         }
 
@@ -415,7 +408,6 @@
     padding: spacing("half") 0;
 
     .navPages-list:not(.navPages-list-depth-max) & {
-        padding: 0 0 0 spacing("single");
 
         @include breakpoint("medium") {
             padding: spacing("half") 0 (spacing("half") + spacing("quarter"));

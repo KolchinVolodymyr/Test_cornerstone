@@ -2,8 +2,8 @@
 <div class="accordion-block">
     {{> components/faceted-search/faceted-search-navigation}}
 
-    <div id="facetedSearch-content--{{dashcase facet}}" class="accordion-content{{#unless start_collapsed}} is-open{{/unless}}">
-        <ul id="facetedSearch-navList--{{dashcase facet}}" class="navList" data-facet="{{facet}}" data-has-more-results="{{has_more_results}}">
+    <div id="facetedSearch-content--{{#replace '&' (hyphenate facet) }}{{else}}{{hyphenate facet}}{{/replace}}" class="accordion-content {{#unless ../start_collapsed }} is-open {{/unless}}">
+        <ul id="facetedSearch-navList--{{#replace '&' (hyphenate facet) }}{{else}}{{hyphenate facet}}{{/replace}}" class="navList" data-facet="{{facet}}" data-has-more-results="{{ has_more_results }}">
             {{#each items}}
                 <li class="navList-item">
                     <a
@@ -25,7 +25,7 @@
         </ul>
 
         {{#if show_more_toggle}}
-            <a href="#facetedSearch-navList--{{dashcase facet}}" role="button" class="toggleLink">
+            <a href="#facetedSearch-navList--{{hyphenate facet}}" role="button" class="toggleLink">
                 <span class="toggleLink-text toggleLink-text--off">{{lang 'search.faceted.show-more'}}</span>
             </a>
         {{/if}}

@@ -6,8 +6,23 @@ import { defaultModal, ModalEvents } from './modal';
 import 'slick-carousel';
 import { setCarouselState, onSlickCarouselChange, onUserCarouselChange } from '../common/carousel';
 
+
 export default function (context) {
     const modal = defaultModal();
+
+    //Display a modal pop-up 10 seconds after the initial page load
+    $(window).ready(function () {
+        setTimeout (function () {
+            modal.open({ size: 'large' });
+            //modal.updateContent(`<div class="text-center">Modal pop-up </div>`);
+            let messageUpdate = `<div><strong>Welcome to my site</strong><br/>Please acknowledge this notice.</div>`
+            modal.updateContent(messageUpdate)
+
+        }, 3000)
+    })
+
+
+
 
     $('body').on('click', '.quickview', event => {
         event.preventDefault();

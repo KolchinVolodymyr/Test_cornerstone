@@ -25,7 +25,6 @@
     z-index: zIndex("lowest"); // 5.
 
     @include breakpoint("medium") {
-        padding: 0 spacing("single");
         position: relative;
         right: auto;
         top: auto;
@@ -74,10 +73,7 @@
 
 .navUser-action {
     color: stencilColor("navUser-color");
-    font-weight: fontWeight("bold");
-    padding: spacing("base") spacing("half");
     text-decoration: none;
-    text-transform: uppercase;
 
     &:hover,
     &.is-open {
@@ -92,7 +88,6 @@
     }
 
     .icon {
-        @include square(8px);
         margin: -1px 0 0 spacing("eighth");
     }
 
@@ -142,6 +137,17 @@
 
 .navUser-item {
     display: none;
+    
+    svg, g {
+        fill: stencilColor("navUser-color");
+    }
+    
+    &:hover {
+        svg, g {
+            fill: stencilColor("navUser-color-hover");
+            stroke: stencilColor("navUser-color-hover");
+        }
+    }
 
     @include breakpoint("medium") {
         display: block;
@@ -184,9 +190,6 @@
 
         // scss-lint:disable NestingDepth
         &.is-open {
-            top: auto !important; // 7
-            left: auto !important; // 7
-            right: remCalc(5px); // 7
             @include breakpoint("medium") {
                 right: 0; // 7
             }

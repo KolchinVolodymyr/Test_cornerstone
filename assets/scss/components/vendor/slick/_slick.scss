@@ -20,7 +20,7 @@
 .slick-prev {
     @include carouselOpaqueBackgrounds($slick-arrow-bgColor);
     z-index: 1;
-    border: 1px solid $slick-arrow-borderColor;
+    border: 0px solid $slick-arrow-borderColor;
     height: remCalc(61px);
     margin-top: -(remCalc(15px));
     padding: remCalc(10px);
@@ -190,6 +190,8 @@ div.slick-slider {
     display: none;
     position: relative;
     margin-top: 10px;
+    top: 100%;
+    width: 100%;
     @include addFocusTooltip($attr: aria-label);
 
     @include breakpoint("small") {

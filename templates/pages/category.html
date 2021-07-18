@@ -17,40 +17,66 @@ category:
 
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#if category.image}}
-    {{> components/common/responsive-img
-        image=category.image
-        fallback_size=theme_settings.zoom_size
-        lazyload=theme_settings.lazyload_mode
-        class="category-header-image"
-    }}
-{{/if}}
-{{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}</h1>
-    {{{region name="category_below_header"}}}
-{{/unless}}
-{{{category.description}}}
-<div class="page">
-    {{#if category.faceted_search_enabled}}
-        <aside class="page-sidebar" id="faceted-search-container">
-            {{> components/category/sidebar}}
-        </aside>
-    {{else if category.subcategories}}
-        <aside class="page-sidebar" id="faceted-search-container">
-            {{> components/category/sidebar}}
-        </aside>
-    {{else if category.shop_by_price}}
-        {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar" id="faceted-search-container">
-                {{> components/category/sidebar}}
-            </aside>
+<div class="page page--category">
+    <section class="page-content container">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        {{#unless theme_settings.hide_category_page_heading }}
+            <h1 class="page-heading">{{category.name}}</h1>
+        {{/unless}}
+        {{{region name="category_below_header"}}}
+        {{{category.description}}}
+        {{#if theme_settings.show_subcategories}}
+            {{#if category.subcategories}}
+                <div class="sidebarBlock page-content-subcategories">
+                    <h5 class="sidebarBlock-heading">Subcategories:</h5>
+                    <ul class="navList">
+                        {{#each category.subcategories}}
+                        <li class="navList-item">
+                            <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                                <div class="image-wrap{{#unless image}} image-placeholder{{/unless}}">
+                                {{#if image}}
+                                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                {{else}}
+                                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn 'assets/img/BrandDefault.gif'}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                {{/if}}
+                                </div>
+                                <span>{{name}}</span>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/if}}
         {{/if}}
-    {{/if}}
-
-    <div class="page-content" id="product-listing-container">
-        {{> components/category/product-listing}}
-        {{{region name="category_below_content"}}}
+    </section>
+    
+    <div class="main full grid-bg">
+        <div class="container">
+            {{#if category.faceted_search_enabled}}
+                <aside class="page-sidebar" id="faceted-search-container">
+                    {{> components/category/sidebar}}
+                </aside>
+            {{else}}
+                {{#all category.subcategories theme_settings.subcategories_left_column}}
+                    <aside class="page-sidebar" id="faceted-search-container">
+                        {{> components/category/sidebar}}
+                    </aside>
+                {{else all category.shop_by_price theme_settings.shop_by_price_visibility}}
+                    <aside class="page-sidebar" id="faceted-search-container">
+                        {{> components/category/sidebar}}
+                    </aside>
+                {{/all}}
+            {{/if}}
+        
+            <main class="page-content" id="product-listing-container">
+                {{#if category.products}}
+                    {{> components/category/product-listing}}
+                {{else}}
+                    <p>{{lang 'categories.no_products'}}</p>
+                {{/if}}
+                {{{region name="category_below_content"}}}
+            </main>
+        </div>
     </div>
 </div>
 

@@ -4,6 +4,7 @@ orders:
 limit: 3
 ---
 {{#partial "page"}}
+<div class="container">
 <div class="account">
     {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
     <h2 class="account-heading title">{{lang 'account.orders.heading' }}</h2>
@@ -14,6 +15,7 @@ limit: 3
             {{> components/common/small-paginator pagination.orders}}
         </section>
     </div>
+</div>
 </div>
 {{/partial}}
 {{> layout/base}}

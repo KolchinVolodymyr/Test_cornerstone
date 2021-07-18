@@ -21,23 +21,23 @@ $exportCSS--buttons:                    true; // 1
 
 $buttonStyle-default-color:                  stencilColor("button--default-color");
 $buttonStyle-default-colorHover:             stencilColor("button--default-colorHover");
-$buttonStyle-default-colorActive:            stencilColor("button--default-colorActive");
-$buttonStyle-default-backgroundColor:        transparent;
-$buttonStyle-default-backgroundColorHover:   transparent;
-$buttonStyle-default-backgroundColorActive:  transparent;
+$buttonStyle-default-colorActive:            stencilColor("button--default-colorHover");
+$buttonStyle-default-backgroundColor:        stencilColor("button--default-backgroundColor");
+$buttonStyle-default-backgroundColorHover:   stencilColor("button--default-backgroundColorHover");
+$buttonStyle-default-backgroundColorActive:  stencilColor("button--default-backgroundColorHover");
 $buttonStyle-default-borderColor:            stencilColor("button--default-borderColor");
 $buttonStyle-default-borderColorHover:       stencilColor("button--default-borderColorHover");
-$buttonStyle-default-borderColorActive:      stencilColor("button--default-borderColorActive");
+$buttonStyle-default-borderColorActive:      stencilColor("button--default-borderColorHover");
 
 $buttonStyle-primary-color:                  stencilColor("button--primary-color");
 $buttonStyle-primary-colorHover:             stencilColor("button--primary-colorHover");
-$buttonStyle-primary-colorActive:            stencilColor("button--primary-colorActive");
+$buttonStyle-primary-colorActive:            stencilColor("button--primary-colorHover");
 $buttonStyle-primary-backgroundColor:        stencilColor("button--primary-backgroundColor");
 $buttonStyle-primary-backgroundColorHover:   stencilColor("button--primary-backgroundColorHover");
-$buttonStyle-primary-backgroundColorActive:  stencilColor("button--primary-backgroundColorActive");
+$buttonStyle-primary-backgroundColorActive:  stencilColor("button--primary-backgroundColorHover");
 $buttonStyle-primary-borderColor:            stencilColor("button--primary-backgroundColor");
 $buttonStyle-primary-borderColorHover:       stencilColor("button--primary-backgroundColorHover");
-$buttonStyle-primary-borderColorActive:      stencilColor("button--primary-backgroundColorActive");
+$buttonStyle-primary-borderColorActive:      stencilColor("button--primary-backgroundColorHover");
 
 $buttonStyle-disabled-color:                 stencilColor("button--disabled-color");
 $buttonStyle-disabled-colorHover:            null;
@@ -74,8 +74,8 @@ $buttonStyle-action-borderColorActive:       null;
 // -----------------------------------------------------------------------------
 
 $buttonSize-default-fontSize:           fontSize("base");
-$buttonSize-default-horizontalPadding:  spacing("single") + spacing("half");
-$buttonSize-default-verticalPadding:    spacing("third") + spacing("quarter");
+$buttonSize-default-horizontalPadding:  spacing("single") + spacing("half") + spacing("third");
+$buttonSize-default-verticalPadding:    spacing("third") + spacing("third");
 
 $buttonSize-large-fontSize:             fontSize("smaller");
 $buttonSize-large-horizontalPadding:    null;
@@ -119,7 +119,7 @@ $button-font-family:                    fontFamily("headingSans");
 $button-font-weight:                    fontWeight("normal");
 $button-font-align:                     center;
 
-$button-border-width:                   1px;
+$button-border-width:                   0;
 $button-border-style:                   solid;
 
 $button-radius:                         $global-radius;

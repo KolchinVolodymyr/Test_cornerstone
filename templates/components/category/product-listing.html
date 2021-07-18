@@ -1,7 +1,10 @@
 {{inject 'noCompareMessage' (lang 'compare.no_compare')}}
 
 {{#if category.products}}
-    {{> components/products/filter sort=pagination.category.sort}}
+    <div class="sort-and-pagination">
+        {{> components/products/filter sort=pagination.category.sort}}
+        {{> components/common/paginator pagination.category}}
+    </div>
 
     <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
         {{#if theme_settings.product_list_display_mode '===' 'grid'}}

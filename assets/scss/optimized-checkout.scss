@@ -379,3 +379,12 @@ $optimizedCheckout-input--error-boxShadow: 0 0 3px transparentize(stencilColor("
     background-color: stencilColor("optimizedCheckout-loadingToaster-backgroundColor");
     color: stencilColor("optimizedCheckout-loadingToaster-textColor");
 }
+
+.modal.modal--afterOpen.optimizedCheckout-contentPrimary{
+    visibility: visible !important;
+    display: block !important;
+    max-width: 100%;
+    overflow-y: scroll;
+}
+
+@import "roots/mods";

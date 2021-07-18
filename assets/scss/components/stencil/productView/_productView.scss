@@ -87,12 +87,9 @@
 
     img {
         @include lazy-loaded-img;
-        margin: 0;
         width: get-width(stencilString('productview_thumb_size'));
         object-fit: contain;
         /* Object-fit polyfill */
-        font-family: 'object-fit: contain;';
-        position: relative;
     }
 }
 
@@ -148,31 +145,13 @@
 }
 
 .productView-title {
-    font-size: fontSize("small");
-    margin: -(spacing("half")) 0 spacing("quarter");
-
-    @include breakpoint("medium") {
-        margin-top: spacing("single");
-    }
-
-    @include breakpoint("large") {
-        font-size: fontSize("largest");
-    }
+    margin: 0 0 spacing("quarter");
 }
 
 .productView-brand {
-    color: $productView-brand-link-color;
-    font-size: fontSize("smaller");
-    margin: 0 0 spacing("half");
-
-    @include breakpoint("large") {
-        font-size: fontSize("small");
-        margin: -(spacing("eighth")) 0 spacing("base");
-    }
+    margin: 0 1rem spacing("half") 0;
 
     a {
-        color: $productView-brand-link-color;
-
         // scss-lint:disable NestingDepth
         &:hover {
             color: $productView-brand-link-color--hover;
@@ -184,13 +163,8 @@
 // -----------------------------------------------------------------------------
 
 .productView-price {
-    font-size: fontSize("smaller");
+    font-size: 21px;
     margin-bottom: spacing("third");
-
-    @include breakpoint("medium") {
-        font-size: fontSize("larger");
-        margin-bottom: spacing("base");
-    }
 
     .price-section--saving {
         font-size: fontSize("smaller");
@@ -213,7 +187,7 @@
     &:hover {
         color: stencilColor("color-textSecondary--hover");
     }
-
+    
     &--new {
         padding: 0;
     }
@@ -245,11 +219,7 @@
 
 .productView-info-name,
 .productView-info-value {
-    float: left;
-
-    @include breakpoint("small") {
-        float: none;
-    }
+    float: none;
 }
 
 .productView-info-name {
@@ -342,12 +312,6 @@
 
     .form-action {
 
-        @include breakpoint("small") {
-            float: left;
-            padding: 0 remCalc(10);
-            width: 50%;
-        }
-
         @include breakpoint("medium") {
             padding: 0;
             width: auto;
@@ -387,6 +351,7 @@
     margin: 0;
     max-height: 400px;
     overflow-y: auto;
+    position: relative;
 }
 
 .productOptions-list-item {

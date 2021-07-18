@@ -1,13 +1,9 @@
-<article class="blog">
+<article class="blog{{#if post.body}} full-post{{/if}}">
     <div class="blog-post-figure">
         {{#if post.thumbnail}}
             <figure class="blog-thumbnail">
                 <a href="{{post.url}}">
-                    {{> components/common/responsive-img
-                        image=post.thumbnail
-                        fallback_size=theme_settings.blog_size
-                        lazyload=theme_settings.lazyload_mode
-                    }}
+                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage post.thumbnail 'blog_size'}}" alt="{{post.thumbnail.alt}}" title="{{post.thumbnail.alt}}">
                 </a>
             </figure>
         {{/if}}
@@ -15,10 +11,10 @@
 
     <div class="blog-post-body">
         <header class="blog-header">
-            <h2 class="blog-title">
-                <a href="{{post.url}}">{{post.title}}</a>
-            </h2>
             <p class="blog-date">{{#if post.author}}{{lang 'blog.posted_by' name=post.author}} on {{/if}}{{post.date_published}}</p>
+            <h3 class="blog-title">
+                <a href="{{post.url}}">{{post.title}}</a>
+            </h3>
         </header>
 
         <div class="blog-post">
@@ -27,7 +23,11 @@
             {{else}}
                 {{{post.summary}}}
                 {{#if post.show_read_more}}
-                    &hellip; <a href="{{url}}" aria-label="{{post.title}} {{lang 'blog.read_more'}}">{{lang 'blog.read_more'}}</a>
+                    &hellip; <p class="read-more"><a href="{{url}}" aria-label="{{post.title}} {{lang 'blog.read_more'}}"><strong>{{lang 'blog.read_more'}}</strong>
+                        <i class="icon" aria-hidden="true">
+                            <svg><use xlink:href="#icon-chevron-right" /></svg>
+                        </i>
+                    </a></p>
                 {{/if}}
             {{/if}}
         </div>

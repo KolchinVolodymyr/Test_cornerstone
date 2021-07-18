@@ -12,16 +12,11 @@
 
 .banners {
     background-color: stencilColor("color-primary");
-    color: stencilColor("color-white");
-    padding: spacing("half") 0;
+    padding: remCalc(24) 0;
     text-align: center;
 
     p:last-child {
         margin-bottom: 0;
-    }
-
-    a {
-        color: color("whites", "bright");
     }
 }
 

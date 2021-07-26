@@ -66,12 +66,14 @@
 <!--                {{/if}}-->
 <!--            </span>-->
 <!--        </div>-->
-
-        {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
-        <li class="tab">
-            <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
-        </li>
-        {{/all}}
+        {{#each custom_fields}}
+            {{name}}: {{value}}
+        {{/each}}
+<!--        {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}-->
+<!--        <li class="tab">-->
+<!--            <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>-->
+<!--        </li>-->
+<!--        {{/all}}-->
 
 
 

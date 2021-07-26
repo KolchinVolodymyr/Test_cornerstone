@@ -10,16 +10,19 @@ import { setCarouselState, onSlickCarouselChange, onUserCarouselChange } from '.
 export default function (context) {
     const modal = defaultModal();
 
-    //Display a modal pop-up 10 seconds after the initial page load
-    $(window).ready(function () {
-        setTimeout (function () {
-            modal.open({ size: 'large' });
-            //modal.updateContent(`<div class="text-center">Modal pop-up </div>`);
-            let messageUpdate = `<div><strong>Welcome to my site</strong><br/>Please acknowledge this notice.</div>`
-            modal.updateContent(messageUpdate)
+//    Display a modal pop-up 10 seconds after the initial page load
+//    $(window).ready(function () {
+//        setTimeout (function () {
+//            modal.open({ size: 'large' });
+//            //modal.updateContent(`<div class="text-center">Modal pop-up </div>`);
+//            let messageUpdate = `<div><strong>Welcome to my site</strong><br/>Please acknowledge this notice.</div>`
+//            modal.updateContent(messageUpdate)
+//
+//        }, 10000)
+//    })
 
-        }, 3000)
-    })
+
+
 
 
 

@@ -209,6 +209,25 @@
         "id": "carousel-description-color"
       },
       {
+        "type": "select",
+        "label": "Button radius",
+        "id": "button-shape",
+        "options": [
+          {
+            "label": "Squared",
+            "value": "sqared"
+          },
+          {
+            "label": "Rounded",
+            "value": "rounded"
+          },
+          {
+            "label": "Leaf",
+            "value": "leaf"
+          }
+        ]
+      },
+      {
         "type": "color",
         "label": "Button Text",
         "id": "carousel-button-color"

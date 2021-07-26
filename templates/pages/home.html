@@ -59,19 +59,6 @@ blog:
 {{/partial}}
 
 {{#partial "hero-bottom"}}
-    {{#if blog.recent_posts}}
-        <div class="banners blog-posts-wrap">
-            <div class="container">
-                <h2 class="page-heading">Recent Posts</h2> 
-                <div class="blog-posts">
-                    {{#each blog.recent_posts}}
-                        {{> components/blog/post post=this}}
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-    {{/if}}
-
     {{{region name="home_below_new_products"}}}
 {{/partial}}
 

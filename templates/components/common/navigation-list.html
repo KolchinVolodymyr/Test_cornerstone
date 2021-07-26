@@ -8,6 +8,7 @@
         <svg><use xlink:href="#icon-chevron-down" /></svg>
     </i>
 </a>
+
 <div class="column-menu navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
     <ul class="navPage-subMenu-list">
         {{#each children}}
@@ -18,19 +19,24 @@
                     <i class="icon navPages-action-moreIcon navPages-action-closed" aria-hidden="true"><svg><use xlink:href="#icon-plus" /></svg></i>
                     <i class="icon navPages-action-moreIcon navPages-action-open" aria-hidden="true"><svg><use xlink:href="#icon-minus" /></svg></i>
                 {{/if}}
-                
+                <!--start-->
+                    {{#if children}}
+                        <ul class="subMenu" id="subMenu">
+                            {{#each children}}
+                                <li class="navPage-childList-item">
+                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                <!--end-->
             </li>
-            {{#if children}}
-                {{#each children}}
-                    <li class="navPage-childList-item">
-                        <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">{{name}}</a>
-                    </li>
-                {{/each}}
-            {{/if}}
         {{/each}}
     </ul>
 </div>
+
 {{else}}
+
 <a class="navPages-action{{#if is_active}} activePage{{/if}}"
    href="{{url}}"
    aria-label="{{name}}"

@@ -2,7 +2,6 @@ import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
-import rootsLoaded from './roots/category';
 import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
 
 export default class Category extends CatalogPage {
@@ -43,7 +42,6 @@ export default class Category extends CatalogPage {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
-        rootsLoaded();
 
         $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
 

@@ -29,6 +29,7 @@
     margin-top: $card-figure-marginTop;
     position: relative;
     padding: 3px;
+    overflow: hidden;
 
     &:hover {
 
@@ -69,6 +70,7 @@
 .card-image {
     @include lazy-loaded-img;
     border: 0;
+    width: 100%;
     max-height: 100%;
     object-fit: contain;
     /* Object-fit polyfill */
@@ -104,15 +106,22 @@
 .card-figcaption-button {
     border: $card-figcaption-button-border;
     display: $card-figcaption-button-display;
+    margin: $card-figcaption-button-margin;
 
     &:active {
         background-color: $card-figcaption-button-backgroundHover;
         border: $card-figcaption-button-border;
     }
+
     .card-figcaption-body & {
         &:focus {
+            background-color: $card-figcaption-button-backgroundHover;
             outline: revert;
         }
+    }
+
+    + .card-figcaption-button {
+        margin: $card-figcaption-button-margin;
     }
 }
 

@@ -6,7 +6,6 @@ import Review from './product/reviews';
 import collapsibleFactory from './common/collapsible';
 import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
-import rootsLoaded from './roots/product';
 import { classifyForm } from './common/utils/form-utils';
 import modalFactory from './global/modal';
 
@@ -58,7 +57,6 @@ export default class Product extends PageManager {
 
             return false;
         });
-        rootsLoaded();
 
         this.productReviewHandler();
     }

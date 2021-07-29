@@ -129,6 +129,7 @@
 
     > .powered-by {
         color: stencilColor("color-textSecondary");
+        font-size: fontSize("tiny");
         margin: 0;
     }
 
@@ -160,7 +161,7 @@
 
     .footer-payment-icon {
         height: 100%;
-        margin: spacing("quarter") 15px;
+        margin: spacing("quarter");
         vertical-align: middle;
         width: remCalc(50);
     }
@@ -180,4 +181,8 @@
     table {
         margin: auto;
     }
+}
+
+.footer-newsletter-summary {
+    text-align: left;
 }

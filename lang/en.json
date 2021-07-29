@@ -5,8 +5,8 @@
     },
     "footer": {
         "title": "Footer Start",
-        "brands": "Brands",
-        "navigate": "Information",
+        "brands": "Popular Brands",
+        "navigate": "Navigate",
         "info": "Info",
         "categories": "Categories",
         "call_us": "Call us at {phone_number}",
@@ -61,7 +61,7 @@
             "update": "Update shipping cost"
         },
         "preview": {
-            "checkout_now": "Check out",
+            "checkout_now": "Check out now",
             "checkout_multiple": "or check out with multiple addresses",
             "view_cart": "View Cart"
         },
@@ -126,9 +126,9 @@
         },
         "added_to_cart": {
             "what_next": "Ok, {num_products, plural, one {1 item was} other {# items were}} added to your cart. What's next?",
-            "your_cart_contains": "Your cart now contains {num_products, plural, one {1 item} other {# items}}",
+            "your_cart_contains": "Your cart contains {num_products, plural, one {1 item} other {# items}}",
             "proceed_to_checkout": "Proceed to checkout",
-            "order_subtotal": "Subtotal",
+            "order_subtotal": "Order subtotal",
             "continue_shopping": "Continue Shopping",
             "view_or_edit_cart": "View or edit your cart",
             "you_might_also_like": "You may also like"
@@ -138,7 +138,7 @@
         "store_credit": "You have <strong>{store_credit}</strong> of store credit. To use it, simply place your order and you will be able to choose store credit as the payment method when it comes time to pay for your order.",
         "store_credit_overview": "{credit} Store Credit",
         "generic_error": "Oops! Something went wrong.",
-        "currency": "{code}",
+        "currency": "Select Currency: {code}",
         "currency_switch_promotion" : "Promotions and gift certificates that don't apply to the new currency will be removed from your cart. Are you sure you want to continue?",
         "newsletter_signup": "Register for our newsletter",
         "form_submit": "Submit",
@@ -161,8 +161,8 @@
         "change": "Change",
         "sign_up": "Register",
         "login": "Sign in",
-        "logout": "Logout",
-        "account": "My Account",
+        "logout": "Sign out",
+        "account": "Account",
         "cart": "Cart",
         "search": "Search",
         "gift_cert": "Gift Certificates",
@@ -177,7 +177,7 @@
             "page_of": "Page {current} of {total}"
         },
         "prices_are_in": "Prices are in {CODE}",
-        "previous": "Prev",
+        "previous": "Previous",
         "next": "Next",
         "sorter": {
             "relevance": "Relevance",
@@ -476,7 +476,7 @@
             "create": "Create Wish List",
             "save": "Save Wish List",
             "delete_alert": "Are you sure you want to delete your Wish List(s)? This action cannot be undone.",
-            "create_new": "Create Wish List",
+            "create_new": "Create New Wish List",
             "add_to_default": "Add to My Wish List",
             "enter_wishlist_name_error": "You must enter a wishlist name."
         }
@@ -756,7 +756,7 @@
         "shipping_calculated": "Calculated at Checkout",
         "sold_out": "Sold Out",
         "pre_order": "Pre-Order Now",
-        "choose_options": "View Options",
+        "choose_options": "Choose Options",
         "quick_view": "Quick view",
         "compare": "Compare",
         "max_filesize": "Maximum file size is",
@@ -813,10 +813,10 @@
         "comments": "Comments"
     },
     "newsletter": {
-        "subscribe": "Newsletter Signup",
+        "subscribe": "Subscribe to our newsletter",
         "subscribe_intro": "Get the latest updates on new products and upcoming sales",
         "subscribe_submit": "Subscribe",
-        "email_placeholder": "Enter your email address",
+        "email_placeholder": "Your email address",
         "subscribed_heading": "Thanks for Subscribing!",
         "subscribed_heading_error": "Oops...",
         "subscribed_message": "Thank you for joining our mailing list. You'll be sent the next issue of our newsletter shortly",
@@ -824,7 +824,7 @@
         "unsubscribed_message": "You will no longer receive marketing emails from <b>{store_name}</b>"
     },
     "social": {
-        "connect": "Follow Us"
+        "connect": "Connect With Us"
     },
     "errors": {
         "shipping_quote_failure": "There was a problem retrieving your shipping quote",
@@ -834,7 +834,7 @@
         "errorMessage": "There was a problem retrieving your results. Please try again in a few seconds.",
         "quick_search": {
             "input_label": "Search",
-            "input_placeholder": "What are you looking for?"
+            "input_placeholder": "Search the store"
         },
         "results": {
             "form_label": "Search Keyword:",

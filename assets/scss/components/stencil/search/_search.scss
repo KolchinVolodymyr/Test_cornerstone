@@ -31,8 +31,10 @@
     }
 
     .modal-close {
+        display: none;
+
         @include breakpoint("medium") {
-            display: none;
+            display: block;
         }
     }
 }

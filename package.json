@@ -1,9 +1,9 @@
 {
-  "name": "Roots",
-  "description": "Roots Theme",
-  "version": "3.5.0",
+  "name": "bigcommerce-cornerstone",
+  "description": "The BigCommerce reference theme for the Stencil platform",
+  "version": "5.7.1",
   "private": true,
-  "author": "Weizen Young",
+  "author": "BigCommerce",
   "license": "MIT",
   "dependencies": {
     "@bigcommerce/stencil-utils": "^6.8.1",
@@ -14,7 +14,6 @@
     "focus-within-polyfill": "^5.1.0",
     "formdata-polyfill": "^3.0.20",
     "foundation-sites": "^5.5.3",
-    "hoverintent": "^2.2.0",
     "jquery": "^3.5.1",
     "jstree": "github:vakata/jstree",
     "lazysizes": "5.2.2",
@@ -66,8 +65,6 @@
     "build": "npx webpack --config webpack.prod.js",
     "buildDev": "npx webpack --config webpack.dev.js",
     "lighthouse": "npx lighthouse --config-path=lighthouse-config.js --quiet --output json --chrome-flags=\"--headless\" $URL | jq '.audits | map_values(.rawValue)'",
-    "start": "docker run -name roots-theme -it -p 3000:3000 --rm --entrypoint=/bin/bash --volume=$HOME/repos/roots:/opt/stencil stencil",
-    "bash": "docker exec -it roots-theme bash",
     "test": "npx jest"
   }
 }

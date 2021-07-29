@@ -1,9 +1,9 @@
-{{#if this.items}}
-    <div class="facetedSearch-refineFilters sidebarBlock">
-        <h5 class="sidebarBlock-heading">
-            {{lang 'search.faceted.selected.title'}}
-        </h5>
+<div class="facetedSearch-refineFilters sidebarBlock">
+    <h2 class="sidebarBlock-heading">
+        {{lang 'search.faceted.selected.title'}}
+    </h2>
 
+    {{#if items}}
         <ul class="inlineList inlineList--labels">
             {{#each items}}
                 <li>
@@ -17,7 +17,7 @@
                         {{else}}
                             {{{sanitize title}}}
                         {{/if}}
-    
+
                         <svg class="icon">
                             <use xlink:href="#icon-close" />
                         </svg>
@@ -25,11 +25,13 @@
                 </li>
             {{/each}}
         </ul>
+    {{else}}
+        <p>{{lang 'search.faceted.selected.no-filters'}}</p>
+    {{/if}}
 
-        {{#if remove_all_url}}
-            <a href="{{ remove_all_url }}" data-faceted-search-facet>
-                {{lang 'search.faceted.selected.clear-all'}}
-            </a>
-        {{/if}}
-    </div>
-{{/if}}
+    {{#if remove_all_url}}
+        <a href="{{remove_all_url}}" data-faceted-search-facet>
+            {{lang 'search.faceted.selected.clear-all'}}
+        </a>
+    {{/if}}
+</div>

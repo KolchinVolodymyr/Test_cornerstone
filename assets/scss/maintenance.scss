@@ -1,30 +1,23 @@
-@import "tools/tools";
-
 * {
   box-sizing: border-box;
 }
-html{
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 body {
-  background: stencilColor("body-bg");
+  background: #888 url(../img/coming-soon.jpg) no-repeat center center;
   background-size: cover;
-  color: stencilColor('alerts--textColor');
+  color: #798289;
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: .8em;
+  height: 100vh;
   line-height: 1.5em;
   margin: 0;
   min-width: 320px;
+  min-height: 480px;
   padding: 20px 30px;
 
   -ms-box-orient: horizontal;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
 
   -webkit-justify-content: space-around;
   -ms-flex-pack: space-around;
@@ -35,20 +28,12 @@ body {
   align-items: center;
 }
 main {
-  background-color: stencilColor('alerts--backgroundColor');
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.07);
+  background-color: #fff;
   display: block;
   padding: 20px 30px;
   text-align: center;
 }
-
-.header-logo-image-container{
-    width: get-width(stencilString('logo_size'));
-    margin: auto;
-}
-
-.logo{flex: 1 1 100%; margin-bottom: 20px;}
-.logo img{max-width: 100%;}
-
 section {
   margin-bottom: 40px;
 }
@@ -104,7 +89,7 @@ a {
   margin: 0 5px;
 }
 h1 {
-  color: stencilColor('alerts--textColor');
+  color: #3C4043;
   font-weight: 300;
   font-size: 24px;
   margin-top: 15px;
@@ -141,7 +126,6 @@ div p {
 .powered-by a:hover {
   opacity: 1;
 }
-
 @media screen and (min-width: 540px) {
   body {
     font-size: 1em;

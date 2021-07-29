@@ -101,6 +101,7 @@ export default class ProductDetails extends ProductDetailsBase {
         this.previewModal = modalFactory('#previewModal')[0];
     }
 
+
     registerAddToCartValidation() {
         this.addToCartValidator.add([{
             selector: '[data-quantity-change] > .form-input--incrementTotal',
@@ -421,20 +422,11 @@ export default class ProductDetails extends ProductDetailsBase {
             }
 
             // Open preview modal and update content
-            if (typeof window.theme_settings !== 'undefined' && window.theme_settings.show_fast_cart) {
-                if (this.previewModal) {
-                    this.previewModal.open();
-                    
-                    if (window.ApplePaySession) {
-                        this.previewModal.$modal.addClass('apple-pay-supported');
-                    }
+            if (this.previewModal) {
+                this.previewModal.open();
 
-                    if ($addToCartBtn.parents('.quickView').length === 0) this.previewModal.$preModalFocusedEl = $addToCartBtn;
-                    this.updateCartContent(this.previewModal, response.data.cart_item.id, () => this.previewModal.setupFocusTrap());
-                } else {
-                    this.$overlay.show();
-                    // if no modal, redirect to the cart page
-                    this.redirectTo(response.data.cart_item.cart_url || this.context.urls.cart);
+                if (window.ApplePaySession) {
+                    this.previewModal.$modal.addClass('apple-pay-supported');
                 }
 
                 if (!this.checkIsQuickViewChild($addToCartBtn)) {
@@ -443,6 +435,8 @@ export default class ProductDetails extends ProductDetailsBase {
 
                 this.updateCartContent(this.previewModal, response.data.cart_item.id);
             } else {
+                this.$overlay.show();
+                // if no modal, redirect to the cart page
                 this.redirectTo(response.data.cart_item.cart_url || this.context.urls.cart);
             }
         });

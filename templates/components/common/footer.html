@@ -16,40 +16,23 @@
             </div>
         </div>
     {{/if}}
+
 {{/if}}
-                    
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
-        <section class="footer-info 4a616d6573">
-            <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-categories">
-                <h5 class="footer-info-heading">
-                    {{lang 'footer.categories'}}
-                    <i class="icon" aria-hidden="true">
-                        <svg><use xlink:href="#icon-downselector" /></svg>
-                    </i>
-                </h5>
-                <ul class="footer-info-list">
-                    {{#each categories}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    {{#if settings.gift_certificates_enabled}}
-                        <li>
-                            <a href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
-                        </li>
-                    {{/if}}
-                </ul>
+        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+            <article class="footer-info-col
+                footer-info-col--social
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+                data-section-type="footer-webPages">
+                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+                    {{> components/common/social-links}}
             </article>
-
-            <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-webPages">
-                <h5 class="footer-info-heading">
-                    {{lang 'footer.navigate'}}
-                    <i class="icon" aria-hidden="true">
-                        <svg><use xlink:href="#icon-downselector" /></svg>
-                    </i>
-                </h5>
+        {{/if}}
+        <section class="footer-info">
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
                         <li>
@@ -61,65 +44,64 @@
                     </li>
                 </ul>
             </article>
-        
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                </ul>
+            </article>
+
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-                <article class="footer-info-col footer-info-dropdown footer-info-col--small" data-section-type="footer-brands">
-                    <h5 class="footer-info-heading">
-                        {{lang 'footer.brands'}}
-                        <i class="icon" aria-hidden="true">
-                            <svg><use xlink:href="#icon-downselector" /></svg>
-                        </i>
-                    </h5>
-                    <ul class="footer-info-list">
-                        {{#each shop_by_brand}}
-                            <li>
-                                <a href="{{url}}">{{name}}</a>
-                            </li>
-                        {{/each}}
-                        <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                    </ul>
-                </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each shop_by_brand}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+                    {{/each}}
+                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                </ul>
+            </article>
             {{/and}}
-            
-            {{#if theme_settings.social_icons_footer}}
-                <article class="footer-info-col footer-mobile-limited footer-info-col--small" data-section-type="footer-webPages">
-                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
-                    {{> components/common/social-links}}
-                </article>
-            {{/if}}
-            
+
             {{#if settings.address}}
-                <article class="footer-info-col footer-mobile-limited footer-info-col--small" data-section-type="storeInfo">
-                    <h5 class="footer-info-heading footer-store-name">{{settings.store_name}}</h5>
-                    <address>{{nl2br settings.address}}</address>
-                    {{#if settings.phone_number}}
-                        <div class="footer-info-phone">
-                            <i class="icon" aria-hidden="true">
-                                <svg><use xlink:href="#icon-phone" /></svg>
-                            </i>
-                            <a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a>
-                        </div>
-                    {{/if}}
-                </article>
+            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
+                <address>{{nl2br settings.address}}</address>
+                {{#if settings.phone_number}}
+                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+                {{/if}}
+            </article>
             {{/if}}
+
+            <article class="footer-info-col" data-section-type="newsletterSubscription">
+                {{#if settings.show_newsletter_box}}
+                    {{> components/common/subscription-form}}
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </article>
         </section>
+        {{#if settings.paypal_commerce_credit_message}}
         <div class="footer-copyright">
-            {{> components/common/payment-icons}}
-            {{#if theme_settings.show_copyright_footer}}
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
-            {{/if}}
+            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
         </div>
-        
-        {{#or theme_settings.show_powered_by theme_settings.show_built_by}}
-            <div class="footer-copyright" style="font-size: 12px;">
-                {{#if theme_settings.show_powered_by}}
-                    <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
-                {{/if}}
-                {{#if theme_settings.show_built_by}}
-                    <p class="powered-by">Built by <a href="https://www.weizenyoung.com/" rel="nofollow">Weizen Young</a></p>
-                {{/if}}
+        {{/if}}
+        {{#if theme_settings.show_powered_by}}
+            <div class="footer-copyright">
+                <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
             </div>
-        {{/or}}
+        {{/if}}
+        {{#if theme_settings.show_copyright_footer}}
+            <div class="footer-copyright">
+                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+            </div>
+        {{/if}}
     </div>
     {{{region name="ssl_site_seal--global"}}}
 </footer>

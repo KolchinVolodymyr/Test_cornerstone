@@ -1,3 +1,5 @@
+
+
 <div class="form-field" data-product-attribute="input-text">
     <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_text_{{id}}">
         {{ this.display_name }}:
@@ -7,3 +9,24 @@
 
     <input class="form-input form-input--small" type="text" id="attribute_text_{{id}}" name="attribute[{{this.id}}]" value="{{this.prefill}}" {{#if required}}required{{/if}} {{#if max_length}}maxlength="{{max_length}}"{{/if}}>
 </div>
+
+
+<script>
+    const regex = /[A-Za-z ,.]/;
+    function validate(e) {
+      const chars = e.target.value.split('');
+      const char = chars.pop();
+      if (!regex.test(char)) {
+        e.target.value = chars.join('');
+        alert('unknown or restricted symbol');
+      }
+      if(chars.length > 199 ){
+        alert('too much symbols. Please, make your text shorter');
+      }
+    }
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.querySelector('#attribute_text_155').addEventListener('input', validate);
+    })
+</script>
+
+

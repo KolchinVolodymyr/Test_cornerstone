@@ -9,14 +9,9 @@
                 </div>
             {{/if}}
         {{/or}}
-        
-        <div class="amp-grid-item-image-container amp-image-ratio-1-1">
-            <a class="amp-grid-item-link" data-vars-product-link="{{url}}" data-vars-product-id="{{id}}" data-vars-product-name="{{name}}" href="{{url}}">
-              <amp-img 
-                class="card-image amp-grid-item-image amp-image-contain"
-                src="{{getImage image '500x500' (cdn theme_settings.default_image_product)}}" layout="fill" alt="{{image.alt}}"></amp-img>
-            </a>
-        </div>
+        <a data-vars-product-link="{{url}}" data-vars-product-id="{{id}}" data-vars-product-name="{{name}}" href="{{url}}">
+          <amp-img class="card-image" src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" width="{{first (split theme_settings.productgallery_size 'x')}}" height="{{last (split theme_settings.productgallery_size 'x')}}" layout="responsive" alt="{{image.alt}}"></amp-img>
+        </a>
     </figure>
     <div class="card-body">
         {{#and rating show_rating}}

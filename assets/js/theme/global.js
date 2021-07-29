@@ -16,7 +16,6 @@ import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import { translatePageBuilderValues } from './common/utils/translations-utils';
-import rootsLoaded from './roots/global';
 
 export default class Global extends PageManager {
     onReady() {
@@ -46,10 +45,9 @@ export default class Global extends PageManager {
         }
         loadingProgressBar();
         svgInjector();
+
         if (isProductListPresented || isProductCardPresented) {
             translatePageBuilderValues();
         }
-        
-        rootsLoaded();
     }
 }

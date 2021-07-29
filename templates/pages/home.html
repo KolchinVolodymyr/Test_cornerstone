@@ -12,54 +12,34 @@ blog:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
 {{#partial "hero"}}
-    {{#if carousel}}
+    {{{region name="home_below_menu"}}}
+    {{#and carousel carousel.slides.length}}
         {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows play_pause_button=theme_settings.homepage_show_carousel_play_pause_button}}
-    {{/if}}
-
-    {{#if banners.top}}
-    <div class="banners" data-banner-location="top">
-        {{#each (limit banners.top_metadata 1)}}
-        <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
-            <div data-event-type="promotion-click">
-                {{{this.content}}}
-            </div>
-        </div>
-        {{/each}}
-    </div>
-    {{/if}}
-
-    {{{snippet 'home_content'}}}
-
+    {{/and}}
     {{{region name="home_below_carousel"}}}
-
 {{/partial}}
 
 {{#partial "page"}}
+
     {{#each shipping_messages}}
         {{> components/common/alert/alert-info message}}
     {{/each}}
 
-    <div class="main full grid-bg">
-        <div class="container">
-            {{#if products.featured}}
-                {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
-            {{/if}}
-            {{{region name="home_below_featured_products"}}}
-        
-            {{#if products.top_sellers}}
-                {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
-            {{/if}}
-            {{{region name="home_below_top_products"}}}
-        
-            {{#if products.new}}
-                {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
-            {{/if}}
-        </div>
-    </div>
-{{/partial}}
+<div class="main full">
+    {{#if products.featured}}
+        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_featured_products"}}}
 
-{{#partial "hero-bottom"}}
+    {{#if products.top_sellers}}
+        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    {{/if}}
+    {{{region name="home_below_top_products"}}}
+
+    {{#if products.new}}
+        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    {{/if}}
     {{{region name="home_below_new_products"}}}
+</div>
 {{/partial}}
-
 {{> layout/base}}

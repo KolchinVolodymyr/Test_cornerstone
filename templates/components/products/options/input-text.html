@@ -1,32 +1,41 @@
 
 
 <div class="form-field" data-product-attribute="input-text">
-    <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_text_{{id}}">
-        {{ this.display_name }}:
-
-        {{> components/common/requireness-msg}}
+    <!--  Choose gift option  -->
+    <label class="form-label form-label--alternate form-label--inlineSmall" for="yesCheck">
+        Choose gift option
     </label>
+    <input type="radio" onclick="yesnoCheck()" name="yesno" id="yesCheck">
 
-    <input class="form-input form-input--small" type="text" id="attribute_text_{{id}}" name="attribute[{{this.id}}]" value="{{this.prefill}}" {{#if required}}required{{/if}} {{#if max_length}}maxlength="{{max_length}}"{{/if}}>
+    <div id="ifYes" style="display:none">
+        <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_text_{{id}}">
+            {{ this.display_name }}:
+
+            {{> components/common/requireness-msg}}
+        </label>
+
+        <input class="form-input form-input--small" type="text" id="attribute_text_{{id}}" name="attribute[{{this.id}}]" value="{{this.prefill}}" {{#if required}}required{{/if}} {{#if max_length}}maxlength="{{max_length}}"{{/if}}>
+
+        <!--  Send a congratulation inscription via email  -->
+        <label class="form-label form-label--alternate" for="email">
+            Send a congratulation inscription via email
+        </label>
+        <input type="radio" onclick="congratulationInscription()" name="congratulation" value="congratulation inscription via email" id="email">
+
+        <div id="congratulationInscriptionIfYes" style="display:none">
+            <input type="email" id="emailInput" class="form-input form-input--small" >
+        </div>
+
+        <label class="form-label form-label--alternate form-label--inlineSmall" for="gift">
+            Print it on a gift card
+        </label>
+        <input type="radio" onclick="congratulationInscription()"  name="congratulation" value="gift card" id="gift">
+        <!--  Send a congratulation inscription via email  -->
+
+    </div>
+    <!--  Choose gift option  -->
+
 </div>
 
-
-<script>
-    const regex = /[A-Za-z ,.]/;
-    function validate(e) {
-      const chars = e.target.value.split('');
-      const char = chars.pop();
-      if (!regex.test(char)) {
-        e.target.value = chars.join('');
-        alert('unknown or restricted symbol');
-      }
-      if(chars.length > 199 ){
-        alert('too much symbols. Please, make your text shorter');
-      }
-    }
-    document.addEventListener("DOMContentLoaded", function(event) {
-        document.querySelector('#attribute_text_155').addEventListener('input', validate);
-    })
-</script>
 
 

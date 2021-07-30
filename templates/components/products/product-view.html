@@ -278,3 +278,58 @@
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+
+
+<script>
+  const regex = /[A-Za-z ,.]/;
+    function validate(e) {
+      const chars = e.target.value.split('');
+      const char = chars.pop();
+      if (!regex.test(char)) {
+        e.target.value = chars.join('');
+        alert('unknown or restricted symbol');
+      }
+      if(chars.length > 199 ){
+        alert('too much symbols. Please, make your text shorter');
+      }
+    }
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.querySelector('#attribute_text_155').addEventListener('input', validate);
+    })
+
+
+
+
+
+/**/
+function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('#form-action-addToCart').style.display = 'none';
+        document.getElementById('ifYes').style.display = 'block';
+    }
+    else document.getElementById('ifYes').style.display = 'none';
+}
+
+
+/**/
+function congratulationInscription() {
+    if (document.getElementById('email').checked) {
+        document.getElementById('congratulationInscriptionIfYes').style.display = 'block';
+    }
+    else document.getElementById('congratulationInscriptionIfYes').style.display = 'none';
+}
+/**/
+
+
+var textInput = document.querySelector("#attribute_text_155");
+var emailInput = document.querySelector("#emailInput");
+var btn = document.querySelector("#form-action-addToCart");
+
+btn.addEventListener("click", function() {
+    document.querySelector('#attribute_text_155').value = textInput.value + '  Email.com: ' + emailInput.value;
+});
+
+
+
+
+</script>

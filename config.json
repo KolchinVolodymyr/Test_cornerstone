@@ -1,5 +1,5 @@
 {
-  "name": "Cornerstone",
+  "name": "Cornerstone (12) (1) (5)",
   "version": "5.7.1",
   "template_engine": "handlebars_v4",
   "meta": {
@@ -392,7 +392,8 @@
           "home_garden"
         ]
       },
-      "images": {},
+      "images": {
+      },
       "settings": {
         "hide_breadcrumbs": false,
         "hide_page_heading": false,
